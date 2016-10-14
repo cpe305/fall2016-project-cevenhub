@@ -28,8 +28,6 @@ public class StartCanvas extends Application{
 	public void start(Stage window) throws Exception {
 		window.setTitle("Digital Drawing Tools");
 		
-
-		//GridPane root = new GridPane();
 		Pane root = new Pane();
 		StackPane stack = new StackPane();
         Canvas toolBackground = new Canvas(WIDTH/8, HEIGHT);
