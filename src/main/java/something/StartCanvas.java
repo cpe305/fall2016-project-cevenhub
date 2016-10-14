@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -25,13 +26,16 @@ public class StartCanvas extends Application{
 		
 		Pane root = new Pane();
 		StackPane stack = new StackPane();
-        Canvas toolsBG = new Canvas(WIDTH/10, HEIGHT);
+        Canvas toolBackground = new Canvas(WIDTH/8, HEIGHT);
         Slider sizeSlider = CanvasTools.toolSizeSlider();
+        Label sizeLabel = CanvasTools.toolSizeLabel();
         
         stack.setStyle("-fx-background-color: #CCCCCC;");
-        stack.getChildren().add(toolsBG);
+        
+        stack.getChildren().add(toolBackground);
         root.getChildren().add(stack);
         root.getChildren().add(sizeSlider);
+        root.getChildren().add(sizeLabel);
         
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         window.setScene(scene);
