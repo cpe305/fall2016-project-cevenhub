@@ -45,5 +45,9 @@ public class StartCanvas extends Application{
         window.setScene(scene);
         window.show();
 	}
+	
+	public void createToolBar() {
+		
+	}
 
 }
