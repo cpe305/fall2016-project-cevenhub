@@ -1,4 +1,4 @@
-package something;
+package canvasPackage;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -13,21 +13,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 public class CanvasTools {
-
-	private final static Color textColor = Color.BLACK;
 	
-	public static HBox toolSizeSlider() {
+	public static HBox makeSlider() {
 		Slider sizeSlider = new Slider(1, 3, 1);
 		Label sizeLabel = new Label("Size");
 		
 		sizeSlider.setOrientation(Orientation.HORIZONTAL);
         
         sizeLabel.setFont(new Font("Arial", 18));
-		sizeLabel.setTextFill(textColor);
+		sizeLabel.setTextFill(StartCanvas.textColor);
 		
-        HBox hbTool = new HBox(5, sizeLabel, sizeSlider);
-        hbTool.setLayoutY(StartCanvas.HEIGHT/3);
-		
+		HBox hbTool = new HBox(5, sizeLabel, sizeSlider);
+	    hbTool.setLayoutY(StartCanvas.HEIGHT/3);
+			
 		return hbTool;
 	}
 	
