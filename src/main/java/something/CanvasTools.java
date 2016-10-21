@@ -15,6 +15,8 @@ import javafx.scene.text.Font;
 public class CanvasTools {
 
 	private final static Color textColor = Color.BLACK;
+	private static int rVal, gVal, bVal;
+	private static Color paintColor;
 	
 	public static HBox toolSizeSlider() {
 		Slider sizeSlider = new Slider(1, 3, 1);
@@ -29,6 +31,33 @@ public class CanvasTools {
         hbTool.setLayoutY(StartCanvas.HEIGHT/3);
 		
 		return hbTool;
+	}
+	public static VBox RGBSliders()
+	{
+		//creates RGB Sliders
+		Label lbltitle = new Label("Choose a color:");
+		lbltitle.setMinWidth(50);
+		lbltitle.setAlignment(Pos.CENTER);
+		lbltitle.setStyle("-fx-font-size: 16px; -fx-background-color: grey; -fx-text-fill:white;");
+		lbltitle.setPadding(new Insets(10));
+		
+		rVal = 255;
+		gVal = 255;
+		bVal = 255;
+
+		paintColor = Color.rgb(rVal, gVal, bVal);
+		
+		//default color black
+		Slider rSlide = new Slider(0 , 255, rVal);
+		Slider gSlide = new Slider(0 , 255, gVal);
+		Slider bSlide = new Slider(0 , 255, bVal);
+		
+		Rectangle colorView = new Rectangle(100,20, paintColor);
+		
+		VBox vbSlider = new VBox(20, lbltitle, rSlide, gSlide, bSlide, colorView );
+		vbSlider.setPadding(new Insets(10));
+		
+		return vbSlider;
 	}
 	
 	public static VBox radioButtons() {
