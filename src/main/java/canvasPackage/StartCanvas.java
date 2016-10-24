@@ -1,10 +1,11 @@
-package something;
+package canvasPackage;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -15,6 +16,7 @@ public class StartCanvas extends Application{
 	
 	public final static int WIDTH = 1500;
 	public final static int HEIGHT = 1000;
+	public final static Color textColor = Color.BLACK;
 	private final static String GRAY = "-fx-background-color: #CCCCCC;";
 
 	public static void main(String[] args) {
@@ -29,7 +31,7 @@ public class StartCanvas extends Application{
 		Pane rootNode = new Pane();
 		StackPane stack = new StackPane();
         Canvas toolBackground = new Canvas(WIDTH/8, HEIGHT);
-        HBox sizeSlider = CanvasTools.toolSizeSlider();
+        HBox sizeSlider = CanvasTools.makeSlider();
         VBox radioButtons = CanvasTools.radioButtons();
         VBox penEraser = CanvasTools.penOrEraser();
         
@@ -44,6 +46,10 @@ public class StartCanvas extends Application{
         Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
         window.setScene(scene);
         window.show();
+	}
+	
+	public void createToolBar() {
+		
 	}
 
 }
