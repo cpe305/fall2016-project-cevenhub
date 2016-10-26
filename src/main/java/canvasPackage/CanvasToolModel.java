@@ -10,16 +10,14 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
-public class CanvasTools {
-<<<<<<< HEAD:src/main/java/something/CanvasTools.java
+public class CanvasToolModel {
 
 	private final static Color textColor = Color.BLACK;
 	private static int rVal, gVal, bVal;
 	private static Color paintColor;
-=======
->>>>>>> origin/master:src/main/java/canvasPackage/CanvasTools.java
 	
 	public static HBox makeSlider() {
 		Slider sizeSlider = new Slider(1, 3, 1);
@@ -35,6 +33,7 @@ public class CanvasTools {
 			
 		return hbTool;
 	}
+	
 	public static VBox RGBSliders()
 	{
 		//creates RGB Sliders
@@ -59,6 +58,7 @@ public class CanvasTools {
 		
 		VBox vbSlider = new VBox(20, lbltitle, rSlide, gSlide, bSlide, colorView );
 		vbSlider.setPadding(new Insets(10));
+		vbSlider.setLayoutY(StartCanvas.HEIGHT/2.25);
 		
 		return vbSlider;
 	}

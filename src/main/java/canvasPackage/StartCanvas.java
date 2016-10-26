@@ -31,9 +31,10 @@ public class StartCanvas extends Application{
 		Pane rootNode = new Pane();
 		StackPane stack = new StackPane();
         Canvas toolBackground = new Canvas(WIDTH/8, HEIGHT);
-        HBox sizeSlider = CanvasTools.makeSlider();
-        VBox radioButtons = CanvasTools.radioButtons();
-        VBox penEraser = CanvasTools.penOrEraser();
+        HBox sizeSlider = CanvasToolModel.makeSlider();
+        VBox radioButtons = CanvasToolModel.radioButtons();
+        VBox penEraser = CanvasToolModel.penOrEraser();
+        VBox RGBSlider = CanvasToolModel.RGBSliders();
         
         stack.setStyle(GRAY);
         stack.getChildren().add(toolBackground);
@@ -42,6 +43,7 @@ public class StartCanvas extends Application{
         rootNode.getChildren().add(sizeSlider);
         rootNode.getChildren().add(radioButtons);
         rootNode.getChildren().add(penEraser);
+        rootNode.getChildren().add(RGBSlider);
         
         Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
         window.setScene(scene);

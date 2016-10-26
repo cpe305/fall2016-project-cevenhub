@@ -1,5 +1,5 @@
 package canvasPackage;
 
-public class Cursor {
+public class CursorView {
 
 }
