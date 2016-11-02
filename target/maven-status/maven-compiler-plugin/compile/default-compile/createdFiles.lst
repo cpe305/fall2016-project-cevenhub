@@ -1,3 +1,5 @@
-canvasPackage/CanvasTools.class
-canvasPackage/Cursor.class
-canvasPackage/StartCanvas.class
+edu/calpoly/cpe305/canvas/StartCanvas.class
+edu/calpoly/cpe305/canvas/CursorControl.class
+edu/calpoly/cpe305/canvas/CursorView.class
+edu/calpoly/cpe305/canvas/AbstractCanvasModel.class
+edu/calpoly/cpe305/canvas/CanvasToolModel.class
