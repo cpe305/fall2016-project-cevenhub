@@ -3,7 +3,9 @@
   <groupId>cnguy110</groupId>
   <artifactId>CanvasProject</artifactId>
   <version>1</version>
-  <profile>
+</project>
+<profiles>
+    <profile>
         <id>sonar</id>
         <activation>
             <activeByDefault>true</activeByDefault>
@@ -12,9 +14,10 @@
             <sonar.host.url>
                 http://smartr.cs.hm.edu:9000
             </sonar.host.url>
+
         </properties>
     </profile>
-</project>
+</profiles>
 <build>
     <pluginManagement>
         <plugins>
