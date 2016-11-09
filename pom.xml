@@ -3,8 +3,7 @@
   <groupId>cnguy110</groupId>
   <artifactId>CanvasProject</artifactId>
   <version>1</version>
-</project>
-<profiles>
+  <profiles>
     <profile>
         <id>sonar</id>
         <activation>
@@ -17,8 +16,8 @@
 
         </properties>
     </profile>
-</profiles>
-<build>
+  </profiles>
+  <build>
     <pluginManagement>
         <plugins>
             <plugin>
@@ -28,4 +27,5 @@
             </plugin>
         </plugins>
     </pluginManagement>
-</build>
+  </build>
+</project>
