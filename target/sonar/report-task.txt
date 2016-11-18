@@ -1,0 +1,5 @@
+projectKey=cnguy110:CanvasProject
+serverUrl=http://smartr.cs.hm.edu:9000
+dashboardUrl=http://smartr.cs.hm.edu:9000/dashboard/index/cnguy110:CanvasProject
+ceTaskId=AVgou6lky_tgUXX3eVHI
+ceTaskUrl=http://smartr.cs.hm.edu:9000/api/ce/task?id=AVgou6lky_tgUXX3eVHI
