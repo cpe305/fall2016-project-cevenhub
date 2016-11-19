@@ -7,15 +7,9 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -25,8 +19,9 @@ public class StartCanvas extends Application {
 
   public static final int WIDTH = 1500;
   public static final int HEIGHT = 1000;
-  public static final Color textColor = Color.BLACK;
   private static final String GRAY = "-fx-background-color: #CCCCCC;";
+
+  private static ArrayList<Line> lineList = new ArrayList<Line>();
 
   public static void main(String[] args) {
     launch(args);
@@ -40,7 +35,6 @@ public class StartCanvas extends Application {
     Pane rootNode = new Pane();
     StackPane stack = new StackPane();
     Canvas toolBackground = new Canvas(WIDTH / 8, HEIGHT);
-    final ArrayList<Line> lineList = new ArrayList<Line>();
 
     stack.setStyle(GRAY);
     stack.getChildren().add(toolBackground);
@@ -63,8 +57,13 @@ public class StartCanvas extends Application {
     scene.setOnMousePressed(new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         Line line = new Line();
+
+        line.setFill(CanvasToolModel.paintColor);
+        line.setStroke(CanvasToolModel.paintColor);
+        line.setStrokeWidth(CanvasToolModel.magnifySize);
         line.setStartX(event.getX());
         line.setStartY(event.getY());
+
         lineList.add(line);
         System.out.println("Start X: " + line.getStartX() + " Start Y: " + line.getStartY());
       }
@@ -81,10 +80,6 @@ public class StartCanvas extends Application {
 
     window.setScene(scene);
     window.show();
-
-  }
-
-  public void createToolBar() {
 
   }
 

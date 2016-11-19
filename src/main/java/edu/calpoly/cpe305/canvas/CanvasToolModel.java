@@ -1,5 +1,7 @@
 package edu.calpoly.cpe305.canvas;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -19,20 +21,28 @@ public class CanvasToolModel {
   private static int rVal;
   private static int gVal;
   private static int bVal;
-  private static Color paintColor;
+  public static Color paintColor;
+  public static float magnifySize = 1;
 
   /**
    * makeSlider - A method which creates the visual aspect of size slider.
+   * 
    * @return a horizontal node of the slider tool
    */
   public static HBox makeSlider() {
-    Slider sizeSlider = new Slider(1, 3, 1);
+    Slider sizeSlider = new Slider(1, 10, 1);
     Label sizeLabel = new Label("Size");
+    
+    sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+      public void changed(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) {
+        magnifySize = newVal.floatValue();
+      }
+    });
 
     sizeSlider.setOrientation(Orientation.HORIZONTAL);
 
     sizeLabel.setFont(new Font("Arial", 18));
-    sizeLabel.setTextFill(StartCanvas.textColor);
+    sizeLabel.setTextFill(textColor);
 
     HBox hbTool = new HBox(5, sizeLabel, sizeSlider);
     hbTool.setLayoutY(StartCanvas.HEIGHT / 3);
@@ -42,6 +52,7 @@ public class CanvasToolModel {
 
   /**
    * rgbSliders - A method which creates the visual aspect of rgb slider.
+   * 
    * @return a vertical node of the RGB slider tool
    */
   public static VBox rgbSliders() {
@@ -62,8 +73,29 @@ public class CanvasToolModel {
     Slider redSlide = new Slider(0, 255, rVal);
     Slider greenSlide = new Slider(0, 255, gVal);
     Slider blueSlide = new Slider(0, 255, bVal);
+    final Rectangle colorView = new Rectangle(100, 20, paintColor);
 
-    Rectangle colorView = new Rectangle(100, 20, paintColor);
+    redSlide.valueProperty().addListener(new ChangeListener<Number>() {
+      public void changed(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) {
+        rVal = newVal.intValue();
+        paintColor = Color.rgb(rVal, gVal, bVal);
+        colorView.setFill(paintColor);
+      }
+    });
+    blueSlide.valueProperty().addListener(new ChangeListener<Number>() {
+      public void changed(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) {
+        bVal = newVal.intValue();
+        paintColor = Color.rgb(rVal, gVal, bVal);
+        colorView.setFill(paintColor);
+      }
+    });
+    greenSlide.valueProperty().addListener(new ChangeListener<Number>() {
+      public void changed(ObservableValue<? extends Number> ov, Number oldVal, Number newVal) {
+        gVal = newVal.intValue();
+        paintColor = Color.rgb(rVal, gVal, bVal);
+        colorView.setFill(paintColor);
+      }
+    });
 
     VBox vbSlider = new VBox(20, lbltitle, redSlide, greenSlide, blueSlide, colorView);
     vbSlider.setPadding(new Insets(10));
@@ -74,6 +106,7 @@ public class CanvasToolModel {
 
   /**
    * radioButtons - A method which creates the visual aspect of the cursor shapes tool.
+   * 
    * @return a vertical node of the cursor shapes tool
    */
   public static VBox radioButtons() {
@@ -108,6 +141,7 @@ public class CanvasToolModel {
 
   /**
    * penOrEraser - A method which creates the visual aspect of selecting the pen or eraser tool.
+   * 
    * @return a vertical node of the pen or eraser tool
    */
   public static VBox penOrEraser() {
