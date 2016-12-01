@@ -1,5 +1,4 @@
-# fall2016-project-cevenhub
-Digital Drawing Canvas
+# Digital Drawing Canvas
 
 What is it?
 -----------
