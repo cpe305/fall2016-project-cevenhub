@@ -1,5 +1,25 @@
 # fall2016-project-cevenhub
-fall2016-project-cevenhub created by GitHub Classroom
+Digital Drawing Canvas
 
-This project is being built to understand how good architecture is applied. The tool built by the end will not be up to par
-with other tools of its kind. May continue to revise this at a future point, or not. Extra words.
+What is it?
+-----------
+The Digital Drawing Canvas is a basic painting tool. This project was started for the purpose of practicing design patterns and software tools. Because it was started for this reason, the project may not reach a state for public distribution.
+
+
+Current Version
+---------------
+The project currently lacks many functionalities that should be present in a base build. The only functionality currently running is the ability for the user to draw lines or circles with varying size and color.
+
+
+Documentation
+-------------
+No documentation currently available.
+
+
+Installation
+------------
+Recommended to not download current version of project.
+
+
+------------------------------------------------------------------------------------------------------------------------------
+Copyright 2016. Calvin Nguyen. All rights reserved.
