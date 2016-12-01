@@ -21,8 +21,6 @@ public class StartCanvas extends Application {
   public static final int HEIGHT = 1000;
   private static final String GRAY = "-fx-background-color: #CCCCCC;";
 
-  private static ArrayList<Line> lineList = new ArrayList<Line>();
-
   public static void main(String[] args) {
     launch(args);
 
@@ -40,43 +38,22 @@ public class StartCanvas extends Application {
     stack.getChildren().add(toolBackground);
 
     HBox sizeSlider = CanvasToolModel.makeSlider();
-    VBox radioButtons = CanvasToolModel.radioButtons();
+    VBox shapeChoices = CanvasToolModel.shapeChoice();
     VBox penEraser = CanvasToolModel.penOrEraser();
     VBox rgbSlider = CanvasToolModel.rgbSliders();
-    final Group lineNodes = new Group();
-
+    final Group shapeNodes = new Group();
+    
     rootNode.getChildren().add(stack);
     rootNode.getChildren().add(sizeSlider);
-    rootNode.getChildren().add(radioButtons);
+    rootNode.getChildren().add(shapeChoices);
     rootNode.getChildren().add(penEraser);
     rootNode.getChildren().add(rgbSlider);
-    rootNode.getChildren().add(lineNodes);
+    rootNode.getChildren().add(shapeNodes);
 
     Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
-
-    scene.setOnMousePressed(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent event) {
-        Line line = new Line();
-
-        line.setFill(CanvasToolModel.paintColor);
-        line.setStroke(CanvasToolModel.paintColor);
-        line.setStrokeWidth(CanvasToolModel.magnifySize);
-        line.setStartX(event.getX());
-        line.setStartY(event.getY());
-
-        lineList.add(line);
-        System.out.println("Start X: " + line.getStartX() + " Start Y: " + line.getStartY());
-      }
-    });
-    scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent event) {
-        lineList.get(lineList.size() - 1).setEndX(event.getX());
-        lineList.get(lineList.size() - 1).setEndY(event.getY());
-        System.out.println("End X: " + lineList.get(lineList.size() - 1).getEndX() + " End Y: "
-            + lineList.get(lineList.size() - 1).getEndY());
-        lineNodes.getChildren().add(lineList.get(lineList.size() - 1));
-      }
-    });
+    
+    ShapeState shape = new ShapeState();
+    shape.drawShape(scene, shapeNodes);
 
     window.setScene(scene);
     window.show();
