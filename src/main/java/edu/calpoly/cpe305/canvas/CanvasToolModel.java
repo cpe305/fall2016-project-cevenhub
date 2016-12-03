@@ -136,8 +136,6 @@ public class CanvasToolModel {
     rb4.setToggleGroup(group);
     rb1.setSelected(true);
     
-    group.notify();
-    
     // adds label and radio button options to Vbox
     VBox vbradio = new VBox(20, lbltitle, rb1, rb2, rb3, rb4);
     vbradio.setPadding(new Insets(10));

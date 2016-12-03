@@ -10,7 +10,7 @@ public class ShapeState {
     setState(new DrawLine());
   }
 
-  void setState(final DrawInterface newShape) {
+  public void setState(final DrawInterface newShape) {
     shapeState = newShape;
   }
 
