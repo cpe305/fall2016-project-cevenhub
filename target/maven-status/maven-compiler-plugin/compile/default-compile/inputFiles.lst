@@ -1,5 +1,7 @@
+/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/DrawSquare.java
+/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/DrawLine.java
 /Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/CanvasToolModel.java
 /Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/StartCanvas.java
-/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/AbstractCanvasModel.java
-/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/CursorControl.java
-/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/CursorView.java
+/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/ShapeState.java
+/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/DrawInterface.java
+/Users/calvinnguyen/Documents/fall2016-project-cevenhub/src/main/java/edu/calpoly/cpe305/canvas/DrawCircle.java

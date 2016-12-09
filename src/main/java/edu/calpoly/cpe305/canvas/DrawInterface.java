@@ -1,9 +1,9 @@
 package edu.calpoly.cpe305.canvas;
 
 import javafx.scene.Group;
-import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 
 public interface DrawInterface {
 
-  public void drawShape(Scene scene, Group nodes);
+  public void drawShape(Canvas canvas, Group nodes);
 }

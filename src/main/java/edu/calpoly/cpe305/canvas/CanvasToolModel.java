@@ -2,20 +2,18 @@ package edu.calpoly.cpe305.canvas;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
@@ -67,9 +65,9 @@ public class CanvasToolModel {
     lbltitle.setStyle("-fx-font-size: 16px; -fx-background-color: grey; -fx-text-fill:white;");
     lbltitle.setPadding(new Insets(10));
 
-    rVal = 255;
-    gVal = 255;
-    bVal = 255;
+    rVal = 0;
+    gVal = 0;
+    bVal = 0;
 
     paintColor = Color.rgb(rVal, gVal, bVal);
 
@@ -127,17 +125,37 @@ public class CanvasToolModel {
 
     final RadioButton rb1 = new RadioButton("Line");
     final RadioButton rb2 = new RadioButton("Circle");
-    final RadioButton rb3 = new RadioButton("Rectangle");
-    final RadioButton rb4 = new RadioButton("Triangle");
+    final RadioButton rb3 = new RadioButton("Square");
 
     rb1.setToggleGroup(group);
     rb2.setToggleGroup(group);
     rb3.setToggleGroup(group);
-    rb4.setToggleGroup(group);
     rb1.setSelected(true);
     
+    rb1.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent event) {
+          StartCanvas.shape = new ShapeState(new DrawLine());
+          StartCanvas.shape.drawShape(StartCanvas.canvas, StartCanvas.shapeNodes);
+      }
+    });
+    rb2.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent event) {
+          StartCanvas.shape = new ShapeState(new DrawCircle());
+          StartCanvas.shape.drawShape(StartCanvas.canvas, StartCanvas.shapeNodes);
+      }
+    });
+    rb3.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent event) {
+          StartCanvas.shape = new ShapeState(new DrawSquare());
+          StartCanvas.shape.drawShape(StartCanvas.canvas, StartCanvas.shapeNodes);
+      }
+    });
+    
     // adds label and radio button options to Vbox
-    VBox vbradio = new VBox(20, lbltitle, rb1, rb2, rb3, rb4);
+    VBox vbradio = new VBox(20, lbltitle, rb1, rb2, rb3);
     vbradio.setPadding(new Insets(10));
 
     return vbradio;
