@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class StartCanvas extends Application {
 
-  public static final int WIDTH = 1500;
+  public static final int WIDTH = 1400;
   public static final int HEIGHT = 1000;
   public static ShapeState shape = new ShapeState(new DrawLine());
   public static Canvas canvas = new Canvas(7 * WIDTH / 8, HEIGHT);
